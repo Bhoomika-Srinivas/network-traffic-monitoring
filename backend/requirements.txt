@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+scapy
+psutil
+pytest
+pytest-cov
