@@ -1,5 +1,6 @@
 import pytest
 from app import app, db, User
+# Comment added to trigger a new commit
 
 @pytest.fixture
 def client():
