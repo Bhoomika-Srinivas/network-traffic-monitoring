@@ -7,42 +7,47 @@ on:
     branches: [ main ]
 
 jobs:
-  build-test:
+  backend-tests:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Python backend setup
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: '3.10'
 
       - name: Install backend dependencies
         run: |
           cd backend
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest pytest-cov
 
-      - name: Run backend tests (JUnit XML)
+      - name: Run pytest with coverage
         run: |
           cd backend
-          pytest --junitxml=report.xml
+          pytest --maxfail=1 --disable-warnings -q --cov=.
 
-      # Node frontend setup
+  frontend-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: '18'
 
       - name: Install frontend dependencies
         run: |
           cd frontend
           npm install
 
-      - name: Run frontend tests (Jest)
+      - name: Run Jest tests
         run: |
           cd frontend
           npm test -- --ci --reporters=default --reporters=jest-junit
