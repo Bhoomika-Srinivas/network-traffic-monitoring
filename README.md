@@ -15,6 +15,26 @@ Includes login system, packet capturing, and a dashboard with live graphs.
 - Backend: Python Flask, Scapy, Psutil
 - Database: SQLite
 
+## Project Results
+
+### Packet Flow Graph
+![Packet Flow Graph](screenshots/graph1.png)
+
+### Upload & Download Speed Graph
+![Speed Graph](screenshots/graph2.png)
+
+### Packet Flow Rate Very Low
+![Very Low Traffic](screenshots/graph3.png)
+
+### Network Traffic Rate Low
+![Low Traffic](screenshots/graph4.png)
+
+### Network Traffic Rate Moderate
+![Moderate Traffic](screenshots/graph5.png)
+
+### Network Traffic Rate High
+![High Traffic](screenshots/graph6.png)
+
 ## ▶️ Run Locally
 ```bash
 git clone https://github.com/yourusername/network-traffic-monitoring.git
